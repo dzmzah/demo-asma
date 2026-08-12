@@ -120,6 +120,24 @@
     font-size:26px;line-height:1}
   .kurs p{color:rgba(242,239,233,.75);font-size:14.5px;margin-top:5px}
 
+  /* ── INSTAGRAM: kafelki 1:1 plus karta profilu w tej samej siatce ── */
+  .ig{display:grid;gap:8px;margin-top:26px;grid-template-columns:repeat(2,1fr)}
+  .ig-kafel{position:relative;overflow:hidden;aspect-ratio:1}
+  .ig-kafel img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+  .ig-kafel::after{content:'';position:absolute;inset:0;background:rgba(11,12,13,0);transition:background .3s}
+  .ig-kafel:hover img{transform:scale(1.06)}
+  .ig-kafel:hover::after{background:rgba(15,79,76,.35)}
+  .ig-profil{grid-column:span 2;aspect-ratio:auto;display:flex;flex-direction:column;
+    align-items:flex-start;justify-content:center;gap:5px;padding:24px;
+    border:1px solid rgba(200,164,74,.35);
+    background:linear-gradient(135deg,rgba(15,79,76,.45),rgba(11,12,13,.9))}
+  .ig-awatar{width:44px;height:44px;color:var(--zloto-j);margin-bottom:6px}
+  .ig-profil b{font-family:'Barlow Condensed',sans-serif;font-size:29px;font-weight:800;line-height:1}
+  .ig-profil span{color:var(--szary2);font-size:13.5px}
+  .ig-btn{margin-top:12px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;
+    letter-spacing:.06em;text-transform:uppercase;background:var(--zloto);color:#0b0c0d;padding:10px 20px}
+  .ig-profil:hover .ig-btn{background:var(--zloto-j)}
+
   /* ── KONTAKT ── */
   .info{display:grid;margin-top:26px;grid-template-columns:1fr;border-top:1px solid rgba(242,239,233,.12)}
   .ib{padding:22px 0;border-bottom:1px solid rgba(242,239,233,.12)}
@@ -152,6 +170,9 @@
     .cennik{columns:2;column-gap:56px}
     .poz{break-inside:avoid}
     .kursy{grid-template-columns:repeat(2,1fr)}
+    .ig{grid-template-columns:repeat(5,1fr)}
+    .ig-profil{grid-column:span 1;aspect-ratio:1;padding:20px}
+    .ig-profil b{font-size:24px}
     .info{grid-template-columns:repeat(3,1fr);gap:0 36px}
     .pasek{display:none}
     footer{padding-bottom:34px}
@@ -246,6 +267,35 @@
       <div class="kurs fade"><b>02</b><div><h3>Kurs jednodniowy</h3><p>Jedna technika, jeden dzień, do skutku. Dla tych, którzy już strzygą.</p></div></div>
       <div class="kurs fade"><b>03</b><div><h3>Biotrwała</h3><p>Usługa, o którą pytają coraz częściej, a mało kto ją robi dobrze.</p></div></div>
       <div class="kurs fade"><b>04</b><div><h3>Wynajem fotela</h3><p>Stanowisko w salonie, w którym ruch już jest. Pytaj o wolne miejsca.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="insta">
+  <div class="wrap">
+    <div class="naglowek fade">
+      <div>
+        <div class="metka">Instagram</div>
+        <h2>Codziennie <em>nowe roboty</em></h2>
+      </div>
+      <p class="opis">Wolne terminy, kursy i to, co wyszło spod maszynki — wrzucamy na bieżąco.</p>
+    </div>
+    <div class="ig">
+      <a class="ig-profil fade" href="https://www.instagram.com/asmabarber/">
+        <div class="ig-awatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.6"/>
+            <circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <b>@asmabarber</b>
+        <span>2 275 obserwujących · 432 posty</span>
+        <div class="ig-btn">Obserwuj</div>
+      </a>
+      <a class="ig-kafel fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-12.jpg" alt="Fade"></a>
+      <a class="ig-kafel fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-04.jpg" alt="Brwi nitką"></a>
+      <a class="ig-kafel fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-06.jpg" alt="Strzyżenie"></a>
+      <a class="ig-kafel fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-09.jpg" alt="Broda"></a>
     </div>
   </div>
 </section>
