@@ -5,263 +5,277 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>ASMA BARBER Katowice — projekt strony (demo ZOVU)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
+  /* paleta wzięta z ich salonu: turkusowa ściana, złote ramy luster, czarne fotele */
   :root{
-    --tlo:#0a0a0b;
-    --tlo2:#121214;
-    --zloto:#c9a227;
-    --zloto-jasne:#e8cf7a;
-    --tekst:#f6f4f0;
-    --szary:#9d9891;
+    --czern:#0b0c0d;
+    --turkus:#0f4f4c;
+    --turkus-j:#1b7a74;
+    --zloto:#c8a44a;
+    --zloto-j:#edd28c;
+    --kosc:#f2efe9;
+    --szary2:#8d8880;
   }
   html{scroll-behavior:smooth}
-  body{background:var(--tlo);color:var(--tekst);
-    font-family:'Inter','Segoe UI',system-ui,sans-serif;line-height:1.45;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--czern);color:var(--kosc);font-family:'Inter',system-ui,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   img{display:block;max-width:100%}
-  a{color:inherit}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+  .kond{font-family:'Barlow Condensed',sans-serif}
 
-  /* obowiązkowa plansza: strona pokazuje cudzą markę */
-  .demo{position:relative;z-index:20;background:var(--zloto);color:#0a0a0b;
-    font-size:12.5px;font-weight:700;text-align:center;padding:8px 16px;line-height:1.4}
-  .demo span{font-weight:500}
+  .ziarno{position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.13;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
 
-  /* ── HERO: zdjęcie na cały ekran, tekst tylko tyle, ile trzeba ── */
-  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;
-    overflow:hidden}
-  .hero-foto{position:absolute;inset:0;background:url('foto/hero.jpg') center/cover no-repeat;
-    transform:scale(1.06);animation:zoom 18s ease-out forwards}
-  @keyframes zoom{to{transform:scale(1)}}
-  .hero::after{content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,.25) 38%,rgba(10,10,11,.94) 100%)}
-  .hero-in{position:relative;z-index:2;width:100%;padding:0 0 54px}
-  .nadtytul{font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--zloto-jasne);font-weight:700;margin-bottom:16px}
-  .hero h1{font-size:clamp(52px,15vw,150px);line-height:.84;letter-spacing:-.035em;
-    font-weight:900;text-transform:uppercase}
-  .hero h1 span{display:block;color:transparent;-webkit-text-stroke:1.5px var(--zloto)}
-  .hero p{margin-top:20px;max-width:430px;color:#ddd8d0;font-size:17px}
+  .demo{position:relative;z-index:20;background:var(--zloto);color:#0b0c0d;
+    font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;text-align:center;padding:7px 16px}
+  .demo span{font-weight:600;opacity:.72}
 
-  .gwiazd{display:flex;align-items:center;gap:9px;margin-top:22px;font-size:15px}
-  .gwiazd b{font-size:19px}
-  .gwiazd i{color:var(--zloto);font-style:normal;letter-spacing:2px}
-  .gwiazd span{color:var(--szary)}
+  .top{position:absolute;top:0;left:0;right:0;z-index:15;display:flex;justify-content:space-between;
+    align-items:center;padding:18px 20px;max-width:1280px;margin:0 auto}
+  .logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;line-height:1}
+  .logo b{color:var(--zloto-j)}
+  .logo small{display:block;font-family:'Inter';font-size:8.5px;letter-spacing:.32em;
+    color:rgba(242,239,233,.55);font-weight:600;margin-top:3px}
+  .tel-gora{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;
+    border:1.5px solid rgba(242,239,233,.32);padding:7px 14px}
+  .tel-gora:hover{border-color:var(--zloto);color:var(--zloto-j)}
 
-  .cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}
-  .btn{display:inline-block;padding:15px 28px;border-radius:6px;text-decoration:none;
-    font-weight:700;font-size:15.5px;letter-spacing:.02em;transition:.18s}
-  .btn-1{background:var(--zloto);color:#0a0a0b}
-  .btn-1:hover{background:var(--zloto-jasne)}
-  .btn-2{border:1.5px solid rgba(255,255,255,.32);color:#fff;backdrop-filter:blur(6px)}
-  .btn-2:hover{border-color:#fff}
+  /* ── HERO na ich zdjęciu z salonu ── */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-foto{position:absolute;inset:0;background:url('foto/ich-13.jpg') center 30%/cover no-repeat;
+    transform:scale(1.07);animation:oddech 24s ease-out forwards}
+  @keyframes oddech{to{transform:scale(1)}}
+  .hero-maska{position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(11,12,13,.72) 0,rgba(11,12,13,.15) 42%,rgba(11,12,13,.96) 100%),
+      linear-gradient(90deg,rgba(15,79,76,.35) 0,transparent 55%)}
+  .hero-in{position:relative;z-index:2;width:100%;padding-bottom:38px}
 
-  /* ── pasek liczb ── */
-  .liczby{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.08)}
-  .liczba{background:var(--tlo);padding:26px 20px;text-align:center}
-  .liczba b{display:block;font-size:clamp(26px,6vw,40px);font-weight:900;color:var(--zloto);
-    letter-spacing:-.02em;line-height:1}
-  .liczba span{display:block;margin-top:7px;font-size:11px;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--szary)}
+  .metka{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;
+    font-size:13.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--zloto-j);font-weight:700}
+  .metka::before{content:'';width:30px;height:1.5px;background:var(--zloto)}
 
-  section{padding:74px 0}
-  .tyt{font-size:clamp(30px,7vw,54px);font-weight:900;letter-spacing:-.03em;
-    text-transform:uppercase;line-height:.95}
-  .tyt em{font-style:normal;color:var(--zloto)}
-  .pod{color:var(--szary);margin-top:12px;max-width:430px;font-size:16px}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(58px,16vw,176px);line-height:.82;letter-spacing:-.02em;margin-top:12px}
+  h1 i{font-style:italic;display:block;color:transparent;-webkit-text-stroke:1.5px var(--zloto)}
+  .hero-dol{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;margin-top:22px}
+  .hero p{max-width:330px;color:#ddd8d0;font-size:15.5px}
 
-  /* ── karty szkoleń: zdjęcie jest kartą, tekst leży na nim ── */
-  .karty{display:grid;gap:14px;margin-top:34px;grid-template-columns:1fr}
-  .karta{position:relative;border-radius:14px;overflow:hidden;min-height:280px;
-    display:flex;align-items:flex-end;isolation:isolate}
-  .karta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-    transition:transform .6s ease}
-  .karta:hover img{transform:scale(1.05)}
-  .karta::after{content:'';position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(180deg,rgba(10,10,11,0) 32%,rgba(10,10,11,.9) 100%)}
-  .karta-tresc{padding:22px}
-  .karta h3{font-size:22px;font-weight:800;letter-spacing:-.01em}
-  .karta p{color:#cfcac2;font-size:14.5px;margin-top:5px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Barlow Condensed',sans-serif;
+    font-weight:800;font-size:18px;letter-spacing:.05em;text-transform:uppercase;padding:14px 24px;
+    transition:.2s}
+  .btn-1{background:var(--zloto);color:#0b0c0d}
+  .btn-1:hover{background:var(--zloto-j)}
+  .btn-2{border:1.5px solid rgba(242,239,233,.32)}
+  .btn-2:hover{border-color:var(--kosc)}
 
-  /* ── cennik: liczby duże, opisy krótkie ── */
-  .cennik{margin-top:34px;display:grid;gap:0;grid-template-columns:1fr}
-  .poz{display:flex;justify-content:space-between;align-items:center;gap:18px;
-    padding:19px 2px;border-bottom:1px solid rgba(255,255,255,.09)}
-  .poz .n{font-weight:600;font-size:17px}
-  .poz .c{color:var(--zloto);font-weight:900;font-size:21px;white-space:nowrap;
-    letter-spacing:-.02em}
-  .poz small{display:block;color:var(--szary);font-weight:400;font-size:13px;margin-top:3px}
+  .biegnie{background:var(--turkus);color:var(--kosc);overflow:hidden;position:relative;z-index:2}
+  .biegnie-w{display:flex;width:max-content;animation:jedzie 30s linear infinite}
+  .biegnie span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;
+    letter-spacing:.1em;text-transform:uppercase;padding:10px 0;white-space:nowrap}
+  .biegnie span::after{content:'✦';margin:0 18px;color:var(--zloto-j)}
+  @keyframes jedzie{to{transform:translateX(-50%)}}
 
-  /* ── galeria ── */
-  .galeria{display:grid;gap:10px;margin-top:34px;
-    grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
-  .galeria img{width:100%;height:100%;object-fit:cover;border-radius:10px}
-  .g-duze{grid-column:span 2;grid-row:span 2}
+  section{padding:64px 0}
+  h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(36px,8.5vw,74px);line-height:.87;letter-spacing:-.015em;margin-top:10px}
+  h2 em{font-style:italic;color:var(--zloto)}
+  .naglowek{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap}
+  .opis{color:var(--szary2);max-width:380px;font-size:15px;margin-top:12px}
 
-  /* ── kontakt ── */
-  .kontakt-siatka{display:grid;gap:14px;margin-top:34px;grid-template-columns:1fr}
-  .blok{background:var(--tlo2);border:1px solid rgba(255,255,255,.07);
-    border-radius:14px;padding:26px}
-  .blok h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--zloto);margin-bottom:16px}
-  .godz{display:flex;justify-content:space-between;padding:9px 0;font-size:15.5px;
-    border-bottom:1px dashed rgba(255,255,255,.09)}
-  .godz:last-child{border-bottom:0}
-  .blok a{display:block;padding:9px 0;font-size:16.5px;text-decoration:none;font-weight:500}
-  .blok a:hover{color:var(--zloto)}
+  /* ── PRACE: ich kwadraty, tak jak je wrzucają ── */
+  .prace{display:grid;gap:8px;margin-top:28px;grid-template-columns:repeat(2,1fr)}
+  .praca{position:relative;overflow:hidden;aspect-ratio:1}
+  .praca img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1)}
+  .praca:hover img{transform:scale(1.05)}
+  .praca span{position:absolute;left:12px;bottom:11px;font-family:'Barlow Condensed',sans-serif;
+    font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--kosc);
+    text-shadow:0 2px 12px rgba(0,0,0,.9)}
+  .praca.duza{grid-column:span 2;aspect-ratio:auto;min-height:260px}
 
-  /* ── stopka ZOVU ── */
-  .zovu{background:linear-gradient(160deg,#17140c,#0a0a0b);border-top:1px solid rgba(201,162,39,.25)}
-  .zovu .tyt{font-size:clamp(26px,6vw,42px)}
-  .zovu p{color:var(--szary);max-width:560px;margin-top:14px;font-size:16px}
-  footer{padding:30px 0 120px;color:#6f6b66;font-size:12.5px;text-align:center;line-height:1.7}
+  /* ── CENNIK ── */
+  .cennik{margin-top:26px}
+  .poz{display:flex;align-items:baseline;gap:12px;padding:14px 0;
+    border-bottom:1px solid rgba(242,239,233,.1)}
+  .poz .n{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:21px;
+    text-transform:uppercase;white-space:nowrap}
+  .poz .kr{flex:1;border-bottom:1px dotted rgba(242,239,233,.22);transform:translateY(-4px)}
+  .poz .t{color:var(--szary2);font-size:12.5px;white-space:nowrap}
+  .poz .c{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;
+    color:var(--zloto-j);white-space:nowrap}
 
-  /* ── przyklejony pasek na telefonie ── */
-  /* pasek pojawia się dopiero pod hero — na pierwszym ekranie dublował przyciski */
-  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;
-    padding:11px 14px calc(11px + env(safe-area-inset-bottom));
-    background:rgba(10,10,11,.93);backdrop-filter:blur(12px);
-    border-top:1px solid rgba(255,255,255,.1);
-    transform:translateY(115%);transition:transform .35s ease}
-  .sticky.on{transform:none}
-  .sticky a{flex:1;text-align:center;padding:14px 10px;border-radius:6px;
-    text-decoration:none;font-weight:700;font-size:15px}
-  .sticky .s1{background:var(--zloto);color:#0a0a0b}
-  .sticky .s2{border:1.5px solid rgba(255,255,255,.28)}
+  /* ── BLOK TURKUSOWY: kursy ── */
+  .turkusowy{background:var(--turkus);position:relative;z-index:2}
+  .turkusowy .opis{color:rgba(242,239,233,.78);max-width:520px}
+  .kursy{display:grid;gap:10px;margin-top:26px;grid-template-columns:1fr}
+  .kurs{border:1px solid rgba(242,239,233,.22);padding:20px;display:flex;gap:16px;align-items:flex-start}
+  .kurs b{font-family:'Barlow Condensed',sans-serif;font-size:14px;color:var(--zloto-j);
+    letter-spacing:.14em;padding-top:3px}
+  .kurs h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:26px;line-height:1}
+  .kurs p{color:rgba(242,239,233,.75);font-size:14.5px;margin-top:5px}
 
-  /* pojawianie się przy przewijaniu */
-  .fade{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  /* ── KONTAKT ── */
+  .info{display:grid;margin-top:26px;grid-template-columns:1fr;border-top:1px solid rgba(242,239,233,.12)}
+  .ib{padding:22px 0;border-bottom:1px solid rgba(242,239,233,.12)}
+  .ib h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--zloto);margin-bottom:12px}
+  .godz{display:flex;justify-content:space-between;padding:6px 0;font-size:15px}
+  .godz b{font-family:'Barlow Condensed',sans-serif;font-size:17px}
+  .ib .duzy{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;display:block;margin-bottom:4px}
+  .ib a:hover{color:var(--zloto-j)}
+  .drobne{color:var(--szary2);font-size:13px;margin-top:10px;line-height:1.7}
+  .drobne b{color:var(--kosc);font-weight:600}
+
+  .zovu{border-top:2px solid var(--zloto);background:linear-gradient(180deg,#151109,var(--czern))}
+  .zovu p{color:var(--szary2);max-width:580px;margin-top:14px;font-size:15.5px}
+  footer{padding:24px 0 104px;color:#6b6862;font-size:11.5px;text-align:center;line-height:1.8}
+
+  .pasek{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:7px;
+    padding:9px 11px calc(9px + env(safe-area-inset-bottom));background:rgba(11,12,13,.95);
+    backdrop-filter:blur(14px);border-top:1px solid rgba(200,164,74,.35);
+    transform:translateY(120%);transition:transform .35s}
+  .pasek.on{transform:none}
+  .pasek .btn{flex:1;justify-content:center}
+
+  .fade{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
   .fade.on{opacity:1;transform:none}
 
-  @media(min-width:720px){
-    .liczby{grid-template-columns:repeat(4,1fr)}
-    .karty{grid-template-columns:repeat(2,1fr)}
-    .cennik{grid-template-columns:1fr 1fr;column-gap:46px}
-    .kontakt-siatka{grid-template-columns:1fr 1fr}
-    .galeria{grid-auto-rows:200px}
-    .sticky{display:none}
-    footer{padding-bottom:40px}
-    section{padding:96px 0}
+  @media(min-width:820px){
+    .prace{grid-template-columns:repeat(4,1fr)}
+    .praca.duza{grid-column:span 2;grid-row:span 2;aspect-ratio:1;min-height:0}
+    .cennik{columns:2;column-gap:56px}
+    .poz{break-inside:avoid}
+    .kursy{grid-template-columns:repeat(2,1fr)}
+    .info{grid-template-columns:repeat(3,1fr);gap:0 36px}
+    .pasek{display:none}
+    footer{padding-bottom:34px}
+    section{padding:92px 0}
   }
   @media(prefers-reduced-motion:reduce){
-    .fade{opacity:1;transform:none;transition:none}
-    .hero-foto{animation:none;transform:none}
+    .fade{opacity:1;transform:none}.hero-foto{animation:none;transform:none}.biegnie-w{animation:none}
   }
 </style>
 </head>
 <body>
-
-<div class="demo">
-  PROJEKT DEMONSTRACYJNY · ZOVU
-  <span>— to nie jest oficjalna strona ASMA BARBER</span>
-</div>
+<div class="ziarno"></div>
+<div class="demo">Projekt demonstracyjny ZOVU <span>· to nie jest oficjalna strona ASMA BARBER</span></div>
 
 <header class="hero">
   <div class="hero-foto"></div>
+  <div class="hero-maska"></div>
+  <div class="top">
+    <div class="logo">ASMA <b>BARBER</b><small>KATOWICE · 1 MAJA 38</small></div>
+    <a class="tel-gora" href="tel:+48797831576">797 831 576</a>
+  </div>
   <div class="hero-in">
     <div class="wrap">
-      <div class="nadtytul">Katowice · 1 Maja 38</div>
-      <h1>ASMA<span>BARBER</span></h1>
-      <p>Strzyżenie, broda, kombo. Szkolenia barberskie od zera. Cztery lata i ponad 14 000 klientów.</p>
-      <div class="gwiazd">
-        <i>★★★★★</i><b>5,0</b><span>· 2 669 opinii</span>
-      </div>
-      <div class="cta">
-        <a class="btn btn-1" href="https://n1431009.alteg.io">Rezerwuj wizytę</a>
-        <a class="btn btn-2" href="#szkolenia">Szkolenia</a>
+      <div class="metka">Barbershop · Cafe &amp; Lounge</div>
+      <h1>ASMA<i>BARBER</i></h1>
+      <div class="hero-dol">
+        <p>Strzyżenie, broda, biotrwała i pielęgnacja. Uczymy też barberingu — od pierwszej maszynki do własnego fotela.</p>
+        <div style="display:flex;gap:9px;flex-wrap:wrap">
+          <a class="btn btn-1" href="https://n1431009.alteg.io">Rezerwuj ↗</a>
+          <a class="btn btn-2" href="#prace">Nasze prace</a>
+        </div>
       </div>
     </div>
   </div>
 </header>
 
-<div class="liczby">
-  <div class="liczba"><b>5,0</b><span>Ocena</span></div>
-  <div class="liczba"><b>2 669</b><span>Opinii</span></div>
-  <div class="liczba"><b>14 000+</b><span>Klientów</span></div>
-  <div class="liczba"><b>4 lata</b><span>Na rynku</span></div>
+<div class="biegnie">
+  <div class="biegnie-w">
+    <span>Fade</span><span>Broda</span><span>Kombo</span><span>Biotrwała</span><span>Maska algowa</span><span>Kursy</span>
+    <span>Fade</span><span>Broda</span><span>Kombo</span><span>Biotrwała</span><span>Maska algowa</span><span>Kursy</span>
+  </div>
 </div>
 
-<section id="szkolenia">
+<section id="prace">
   <div class="wrap">
-    <h2 class="tyt fade">Szkolenia <em>barberskie</em></h2>
-    <p class="pod fade">Uczymy od podstaw i szlifujemy technikę. Grupy małe, sprzęt na miejscu.</p>
-    <div class="karty">
-      <div class="karta fade">
-        <img src="foto/szkolenie.jpg" alt="Szkolenie barberskie">
-        <div class="karta-tresc">
-          <h3>Barber od zera</h3>
-          <p>Od trzymania maszynki po pierwszego klienta w fotelu.</p>
-        </div>
+    <div class="naglowek fade">
+      <div>
+        <div class="metka">Robota</div>
+        <h2>Ostatnie <em>strzyżenia</em></h2>
       </div>
-      <div class="karta fade">
-        <img src="foto/fade.jpg" alt="Kurs jednodniowy">
-        <div class="karta-tresc">
-          <h3>Kurs jednodniowy</h3>
-          <p>Dla tych, którzy już strzygą i chcą podnieść poziom.</p>
-        </div>
-      </div>
-      <div class="karta fade">
-        <img src="foto/broda.jpg" alt="Biotrwała">
-        <div class="karta-tresc">
-          <h3>Biotrwała</h3>
-          <p>Usługa, o którą klienci pytają coraz częściej.</p>
-        </div>
-      </div>
-      <div class="karta fade">
-        <img src="foto/narzedzia.jpg" alt="Wynajem stanowiska">
-        <div class="karta-tresc">
-          <h3>Wynajem stanowiska</h3>
-          <p>Miejsce w centrum Katowic, z ruchem, który już jest.</p>
-        </div>
-      </div>
+      <p class="opis">Zdjęcia prosto z fotela. Bez filtrów i bez cudzych zdjęć z internetu.</p>
+    </div>
+    <div class="prace">
+      <a class="praca duza fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-05.jpg" alt="Biotrwała, loki"><span>Biotrwała</span></a>
+      <a class="praca fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-11.jpg" alt="Broda i fade"><span>Broda</span></a>
+      <a class="praca fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-08.jpg" alt="Loki, strzyżenie"><span>Nożyczki</span></a>
+      <a class="praca fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-03.jpg" alt="Maska algowa"><span>Maska algowa</span></a>
+      <a class="praca fade" href="https://www.instagram.com/asmabarber/"><img src="foto/ich-14.jpg" alt="Przed i po"><span>Przed i po</span></a>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2 class="tyt fade">Cennik</h2>
-    <p class="pod fade">Wybrane pozycje. Pełna lista przy rezerwacji.</p>
+    <div class="naglowek fade">
+      <div>
+        <div class="metka">Cennik</div>
+        <h2>Ile to <em>kosztuje</em></h2>
+      </div>
+      <p class="opis">Gotówka albo BLIK, na miejscu. Bez gwiazdek i dopłat przy kasie.</p>
+    </div>
     <div class="cennik">
-      <div class="poz fade"><div class="n">TOP Strzyżenie męskie<small>45 min</small></div><div class="c">100 zł</div></div>
-      <div class="poz fade"><div class="n">TOP Kombo — strzyżenie i broda<small>1 h 15 min</small></div><div class="c">140–160 zł</div></div>
-      <div class="poz fade"><div class="n">Strzyżenie nożyczkami<small>długie włosy · 1 h 15 min</small></div><div class="c">150 zł</div></div>
-      <div class="poz fade"><div class="n">Bio trwała<small>2 h 30 min</small></div><div class="c">360 zł</div></div>
-      <div class="poz fade"><div class="n">Maska algowa<small>30 min</small></div><div class="c">130 zł</div></div>
-      <div class="poz fade"><div class="n">Korekcja brwi nitką<small>30 min</small></div><div class="c">100 zł</div></div>
-      <div class="poz fade"><div class="n">Farbowanie brwi<small>15 min</small></div><div class="c">60 zł</div></div>
-      <div class="poz fade"><div class="n">Konsultacja<small>15 min</small></div><div class="c">35 zł</div></div>
+      <div class="poz fade"><span class="n">TOP Strzyżenie</span><span class="kr"></span><span class="t">45 min</span><span class="c">100 zł</span></div>
+      <div class="poz fade"><span class="n">TOP Kombo</span><span class="kr"></span><span class="t">1 h 15</span><span class="c">140–160 zł</span></div>
+      <div class="poz fade"><span class="n">Nożyczki</span><span class="kr"></span><span class="t">długie włosy</span><span class="c">150 zł</span></div>
+      <div class="poz fade"><span class="n">Biotrwała</span><span class="kr"></span><span class="t">2 h 30</span><span class="c">360 zł</span></div>
+      <div class="poz fade"><span class="n">Maska algowa</span><span class="kr"></span><span class="t">30 min</span><span class="c">130 zł</span></div>
+      <div class="poz fade"><span class="n">Brwi nitką</span><span class="kr"></span><span class="t">30 min</span><span class="c">100 zł</span></div>
+      <div class="poz fade"><span class="n">Farbowanie brwi</span><span class="kr"></span><span class="t">15 min</span><span class="c">60 zł</span></div>
+      <div class="poz fade"><span class="n">Konsultacja</span><span class="kr"></span><span class="t">15 min</span><span class="c">35 zł</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="turkusowy">
+  <div class="wrap">
+    <div class="metka fade">Szkolenia</div>
+    <h2 class="fade">Nauczymy <em>strzyc</em></h2>
+    <p class="opis fade">Małe grupy, praca na modelach, sprzęt na miejscu. Po kursie zostaje certyfikat i kontakt, kiedy coś nie wychodzi.</p>
+    <div class="kursy">
+      <div class="kurs fade"><b>01</b><div><h3>Barber od zera</h3><p>Dla osób bez doświadczenia. Od trzymania maszynki po pierwszego klienta.</p></div></div>
+      <div class="kurs fade"><b>02</b><div><h3>Kurs jednodniowy</h3><p>Jedna technika, jeden dzień, do skutku. Dla tych, którzy już strzygą.</p></div></div>
+      <div class="kurs fade"><b>03</b><div><h3>Biotrwała</h3><p>Usługa, o którą pytają coraz częściej, a mało kto ją robi dobrze.</p></div></div>
+      <div class="kurs fade"><b>04</b><div><h3>Wynajem fotela</h3><p>Stanowisko w salonie, w którym ruch już jest. Pytaj o wolne miejsca.</p></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2 class="tyt fade">Wnętrze</h2>
-    <div class="galeria">
-      <img class="g-duze fade" src="foto/wnetrze.jpg" alt="Wnętrze barbershopu">
-      <img class="fade" src="foto/strzyzenie.jpg" alt="Strzyżenie">
-      <img class="fade" src="foto/neon.jpg" alt="Neon">
+    <div class="naglowek fade">
+      <div>
+        <div class="metka">Kontakt</div>
+        <h2>Wpadaj</h2>
+      </div>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2 class="tyt fade">Godziny <em>i dojazd</em></h2>
-    <div class="kontakt-siatka">
-      <div class="blok fade">
-        <h4>Otwarte</h4>
+    <div class="info">
+      <div class="ib fade">
+        <h4>Godziny</h4>
         <div class="godz"><span>Pon – pt</span><b>09:00 – 21:00</b></div>
         <div class="godz"><span>Sobota</span><b>08:00 – 22:00</b></div>
         <div class="godz"><span>Niedziela</span><b>11:00 – 18:00</b></div>
+        <p class="drobne">W soboty po <b>14:00</b> jest najciaśniej — wcześniej łatwiej o termin.</p>
       </div>
-      <div class="blok fade">
+      <div class="ib fade">
+        <h4>Adres</h4>
+        <a class="duzy" href="https://maps.google.com/?q=1+Maja+38,+40-287+Katowice">1 Maja 38</a>
+        <p class="drobne">40-287 Katowice · <b>parking na miejscu</b> · wi-fi</p>
+      </div>
+      <div class="ib fade">
         <h4>Kontakt</h4>
-        <a href="tel:+48797831576">+48 797 831 576</a>
-        <a href="https://maps.google.com/?q=1+Maja+38,+40-287+Katowice">1 Maja 38, Katowice</a>
-        <a href="https://www.instagram.com/asmabarber/">@asmabarber</a>
+        <a class="duzy" href="tel:+48797831576">797 831 576</a>
+        <a href="https://www.instagram.com/asmabarber/" class="drobne" style="display:block"><b>@asmabarber</b> — wolne terminy i roboty na bieżąco</a>
+        <p class="drobne">Mówimy po polsku i po ukraińsku.</p>
       </div>
     </div>
   </div>
@@ -269,50 +283,38 @@
 
 <section class="zovu">
   <div class="wrap">
-    <h2 class="tyt fade">Ta strona to <em>szkic</em></h2>
-    <p class="fade">Zrobiliśmy ją w jeden dzień na publicznych danych — bez Waszych zdjęć i bez briefu. Z Waszymi materiałami wygląda lepiej. Zrobiliśmy ją po to, żeby pokazać dwie rzeczy: własny adres nie psuje się przy zmianie systemu rezerwacji, a szkolenia mają wreszcie gdzie stać.</p>
-    <div class="cta fade">
-      <a class="btn btn-1" href="https://zovu.pl">ZOVU · zovu.pl</a>
-    </div>
+    <div class="metka fade">ZOVU · Katowice</div>
+    <h2 class="fade">To jest <em>szkic</em></h2>
+    <p class="fade">Zbudowany w jeden dzień na Waszych zdjęciach z profilu rezerwacji — bez briefu i bez sesji. Chodziło o dwie rzeczy: własny adres nie psuje się, kiedy zmieniacie system zapisów, a kursy wreszcie mają gdzie stać. Zdjęcia i teksty podmieniamy na Wasze w każdej chwili.</p>
+    <div style="margin-top:24px" class="fade"><a class="btn btn-1" href="https://zovu.pl">zovu.pl ↗</a></div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    Projekt: ZOVU · agencja kreatywna z Katowic<br>
-    Strona demonstracyjna, niepowiązana z firmą ASMA BARBER i przez nią niezamówiona.
-    Dane i ceny z publicznego profilu (stan: sierpień 2026). Zdjęcia poglądowe: Pexels.
-    Nie przyjmujemy tu rezerwacji.
+    Projekt: ZOVU · Katowice · Strona demonstracyjna, niepowiązana z firmą ASMA BARBER i przez nią niezamówiona.<br>
+    Zdjęcia i dane pochodzą z publicznego profilu rezerwacji salonu (sierpień 2026) i użyte są wyłącznie
+    do pokazania projektu właścicielom. Nie przyjmujemy tu rezerwacji.
   </div>
 </footer>
 
-<div class="sticky">
-  <a class="s1" href="https://n1431009.alteg.io">Rezerwuj</a>
-  <a class="s2" href="tel:+48797831576">Zadzwoń</a>
+<div class="pasek">
+  <a class="btn btn-1" href="https://n1431009.alteg.io">Rezerwuj</a>
+  <a class="btn btn-2" href="tel:+48797831576">Zadzwoń</a>
 </div>
 
 <script>
-  // Delikatne pojawianie się sekcji — bez bibliotek.
-  // Bezpiecznik: gdyby obserwator nie zadziałał (stara przeglądarka, zrzut całej strony),
-  // treść i tak musi być widoczna — nigdy nie zostawiamy sekcji na opacity:0.
-  const el = document.querySelectorAll('.fade')
-  const pokazWszystko = () => el.forEach(e => e.classList.add('on'))
-
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver((wpisy) => {
-      for (const w of wpisy) if (w.isIntersecting) { w.target.classList.add('on'); obs.unobserve(w.target) }
-    }, { rootMargin: '0px 0px -8% 0px', threshold: .12 })
-    el.forEach((e, i) => { e.style.transitionDelay = (i % 4) * 70 + 'ms'; obs.observe(e) })
-    setTimeout(pokazWszystko, 4000)
-  } else {
-    pokazWszystko()
-  }
-
-  const pasek = document.querySelector('.sticky')
-  const przelacz = () => pasek.classList.toggle('on', scrollY > innerHeight * .85)
-  addEventListener('scroll', przelacz, { passive: true })
-  przelacz()
+  const el=document.querySelectorAll('.fade')
+  const pokaz=()=>el.forEach(e=>e.classList.add('on'))
+  if('IntersectionObserver' in window){
+    const o=new IntersectionObserver(w=>{for(const x of w)if(x.isIntersecting){x.target.classList.add('on');o.unobserve(x.target)}},
+      {rootMargin:'0px 0px -6% 0px',threshold:.1})
+    el.forEach((e,i)=>{e.style.transitionDelay=(i%4)*60+'ms';o.observe(e)})
+    setTimeout(pokaz,4000)
+  } else pokaz()
+  const p=document.querySelector('.pasek')
+  const t=()=>p.classList.toggle('on',scrollY>innerHeight*.8)
+  addEventListener('scroll',t,{passive:true}); t()
 </script>
-
 </body>
 </html>
