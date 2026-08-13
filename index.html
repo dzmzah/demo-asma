@@ -63,6 +63,9 @@
   h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;
     font-size:clamp(58px,16vw,176px);line-height:.82;letter-spacing:-.02em;margin-top:12px}
   h1 i{font-style:italic;display:block;color:transparent;-webkit-text-stroke:1.5px var(--zloto)}
+  .nagroda{display:inline-block;margin-top:14px;border:1px solid rgba(200,164,74,.55);
+    padding:7px 13px;font-family:'Barlow Condensed',sans-serif;font-size:14px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--zloto-j)}
   .hero-dol{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;margin-top:22px}
   .hero p{max-width:330px;color:#ddd8d0;font-size:15.5px}
 
@@ -74,12 +77,14 @@
   .btn-2{border:1.5px solid rgba(242,239,233,.32)}
   .btn-2:hover{border-color:var(--kosc)}
 
-  .biegnie{background:var(--turkus);color:var(--kosc);overflow:hidden;position:relative;z-index:2}
-  .biegnie-w{display:flex;width:max-content;animation:jedzie 30s linear infinite}
-  .biegnie span{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;
-    letter-spacing:.1em;text-transform:uppercase;padding:10px 0;white-space:nowrap}
-  .biegnie span::after{content:'✦';margin:0 18px;color:var(--zloto-j)}
-  @keyframes jedzie{to{transform:translateX(-50%)}}
+  /* pasek z realnym ogłoszeniem zamiast przewijanej listy usług */
+  .ogloszenie{background:var(--turkus);position:relative;z-index:2;padding:14px 0}
+  .ogl-w{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .ogl-tresc{display:flex;align-items:flex-start;gap:11px;flex:1;min-width:240px}
+  .ogl-tresc svg{width:22px;height:22px;flex:none;color:var(--zloto-j);margin-top:1px}
+  .ogl-tresc p{font-size:14.5px;line-height:1.45;color:rgba(242,239,233,.88)}
+  .ogl-tresc b{color:var(--kosc)}
+  .ogloszenie .btn{padding:11px 18px;font-size:16px}
 
   section{padding:64px 0}
   h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;
@@ -248,6 +253,7 @@
     <div class="wrap">
       <div class="metka">Barbershop · Cafe &amp; Lounge</div>
       <h1>ASMA<i>BARBER</i></h1>
+      <div class="nagroda">1. miejsce w Katowicach · Złote Orły Fryzjerstwa</div>
       <div class="hero-dol">
         <p>Strzyżenie, broda, biotrwała i pielęgnacja. Uczymy też barberingu — od pierwszej maszynki do własnego fotela.</p>
         <div style="display:flex;gap:9px;flex-wrap:wrap">
@@ -259,10 +265,14 @@
   </div>
 </header>
 
-<div class="biegnie">
-  <div class="biegnie-w">
-    <span>Fade</span><span>Broda</span><span>Kombo</span><span>Biotrwała</span><span>Maska algowa</span><span>Kursy</span>
-    <span>Fade</span><span>Broda</span><span>Kombo</span><span>Biotrwała</span><span>Maska algowa</span><span>Kursy</span>
+<div class="ogloszenie">
+  <div class="wrap ogl-w">
+    <div class="ogl-tresc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M12 8v5M12 16.5v.01"/><circle cx="12" cy="12" r="9.2"/></svg>
+      <p><b>Zmieniliśmy system zapisów.</b> Stare linki do rezerwacji już nie działają — umawiaj się tutaj albo telefonicznie.</p>
+    </div>
+    <a class="btn btn-1" href="https://n1431009.alteg.io">Nowa rezerwacja</a>
   </div>
 </div>
 
