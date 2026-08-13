@@ -120,6 +120,15 @@
     font-size:26px;line-height:1}
   .kurs p{color:rgba(242,239,233,.75);font-size:14.5px;margin-top:5px}
 
+  /* ── ATELIER: tekst obok zdjęcia, bez kafelków ── */
+  .atelier{background:linear-gradient(180deg,#0b0c0d,#101413)}
+  .atelier-w{display:grid;gap:24px;grid-template-columns:1fr;align-items:center}
+  .lista{list-style:none;margin-top:18px}
+  .lista li{padding:9px 0 9px 20px;position:relative;color:#ddd8d0;font-size:15.5px;
+    border-bottom:1px solid rgba(242,239,233,.09)}
+  .lista li::before{content:'✦';position:absolute;left:0;color:var(--zloto)}
+  .atelier-foto img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+
   /* ── ZESPÓŁ: nazwiska barberów prosto z systemu rezerwacji ── */
   .zespol{display:grid;gap:8px;margin-top:26px;grid-template-columns:repeat(2,1fr)}
   .osoba{border:1px solid rgba(242,239,233,.14);padding:18px 16px;transition:.25s}
@@ -192,6 +201,7 @@
     .cennik{columns:2;column-gap:56px}
     .poz{break-inside:avoid}
     .kursy{grid-template-columns:repeat(2,1fr)}
+    .atelier-w{grid-template-columns:1fr 1fr;gap:56px}
     .zespol{grid-template-columns:repeat(6,1fr)}
     .opinie{grid-template-columns:repeat(2,1fr);gap:26px 44px}
     .ig{grid-template-columns:repeat(5,1fr)}
@@ -278,6 +288,22 @@
       <div class="poz fade"><span class="n">Farbowanie brwi</span><span class="kr"></span><span class="t">15 min</span><span class="c">60 zł</span></div>
       <div class="poz fade"><span class="n">Konsultacja</span><span class="kr"></span><span class="t">15 min</span><span class="c">35 zł</span></div>
     </div>
+  </div>
+</section>
+
+<section class="atelier">
+  <div class="wrap atelier-w">
+    <div class="atelier-tekst">
+      <div class="metka fade">Atelier · Cafe &amp; Lounge</div>
+      <h2 class="fade">Nie tylko <em>fotel</em></h2>
+      <p class="opis fade">W lipcu 2026 otworzyliśmy przy 1 Maja przestrzeń premium — ASMA ATELIER razem z cafe &amp; lounge. Można przyjść wcześniej, usiąść z kawą albo drinkiem i nie patrzeć na zegarek.</p>
+      <ul class="lista fade">
+        <li>Kawa i bar na miejscu</li>
+        <li>Strefa lounge przed wizytą</li>
+        <li>Zamknięte wydarzenia i szkolenia</li>
+      </ul>
+    </div>
+    <div class="atelier-foto fade"><img src="foto/ich-10.jpg" alt="Strefa barberska"></div>
   </div>
 </section>
 
