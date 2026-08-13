@@ -138,18 +138,33 @@
   .osoba span{display:block;margin-top:5px;color:var(--szary2);font-size:13px;
     letter-spacing:.1em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
 
-  /* ── OPINIE: prawdziwe cytaty, nie wymyślone ── */
-  .slupki{min-width:230px;flex:1;max-width:330px}
-  .slupek{display:flex;align-items:center;gap:9px;padding:2.5px 0;font-size:12px}
-  .slupek span{width:9px;color:var(--szary2);font-family:'Barlow Condensed',sans-serif;font-size:14px}
-  .slupek i{height:5px;background:var(--zloto);min-width:2px;display:block}
-  .slupek b{color:var(--szary2);font-weight:500;font-size:11.5px;white-space:nowrap}
-  .opinie{display:grid;gap:10px;margin-top:26px;grid-template-columns:1fr}
-  .opinie blockquote{border-left:2px solid var(--zloto);padding:2px 0 2px 18px}
-  .opinie p{font-size:16.5px;line-height:1.55}
-  .opinie footer{margin-top:9px;color:var(--szary2);font-size:12.5px;
-    font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase}
-  .opinie footer b{color:var(--zloto-j);font-weight:700}
+  /* ── OPINIE: karty przewijane w poziomie, jak w telefonie ── */
+  .karuzela{display:flex;gap:12px;margin-top:26px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding-bottom:10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .karuzela::-webkit-scrollbar{display:none}
+  .opinia{flex:0 0 285px;scroll-snap-align:start;background:#121415;
+    border:1px solid rgba(242,239,233,.1);padding:22px 20px;display:flex;flex-direction:column}
+  .opinia .gw{color:var(--zloto);letter-spacing:3px;font-size:14px}
+  .opinia p{margin-top:12px;font-size:15.5px;line-height:1.6;flex:1}
+  .kto{display:flex;align-items:center;gap:11px;margin-top:18px;
+    border-top:1px solid rgba(242,239,233,.1);padding-top:14px}
+  .ini{width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;
+    background:var(--turkus);color:var(--zloto-j);font-family:'Barlow Condensed',sans-serif;
+    font-weight:800;font-size:18px}
+  .kto b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:19px;
+    text-transform:uppercase;line-height:1}
+  .kto i{display:block;font-style:normal;color:var(--szary2);font-size:11.5px;
+    letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+
+  /* ── KANAŁY: gdzie ich znaleźć ── */
+  .kanaly{display:grid;gap:8px;margin-top:26px;grid-template-columns:repeat(2,1fr)}
+  .kanal{display:flex;align-items:center;gap:12px;padding:16px;
+    border:1px solid rgba(242,239,233,.14);transition:.25s}
+  .kanal:hover{border-color:var(--zloto);background:rgba(200,164,74,.06)}
+  .kanal svg{width:24px;height:24px;flex:none;color:var(--zloto-j)}
+  .kanal b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:19px;
+    text-transform:uppercase;line-height:1}
+  .kanal span{display:block;color:var(--szary2);font-size:12px;margin-top:2px}
 
   /* ── INSTAGRAM: kafelki 1:1 plus karta profilu w tej samej siatce ── */
   .ig{display:grid;gap:8px;margin-top:26px;grid-template-columns:repeat(2,1fr)}
@@ -203,7 +218,8 @@
     .kursy{grid-template-columns:repeat(2,1fr)}
     .atelier-w{grid-template-columns:1fr 1fr;gap:56px}
     .zespol{grid-template-columns:repeat(6,1fr)}
-    .opinie{grid-template-columns:repeat(2,1fr);gap:26px 44px}
+    .opinia{flex-basis:320px}
+    .kanaly{grid-template-columns:repeat(4,1fr)}
     .ig{grid-template-columns:repeat(5,1fr)}
     .ig-profil{grid-column:span 1;aspect-ratio:1;padding:20px}
     .ig-profil b{font-size:24px}
@@ -332,36 +348,38 @@
     <div class="naglowek fade">
       <div>
         <div class="metka">Opinie</div>
-        <h2>2 669 <em>opinii</em></h2>
+        <h2>Ocena <em>5,0</em></h2>
       </div>
-      <div class="slupki fade">
-        <div class="slupek"><span>5</span><i style="width:98.4%"></i><b>2 626</b></div>
-        <div class="slupek"><span>4</span><i style="width:0.6%"></i><b>14</b></div>
-        <div class="slupek"><span>3</span><i style="width:0.4%"></i><b>9</b></div>
-        <div class="slupek"><span>2</span><i style="width:0.3%"></i><b>6</b></div>
-        <div class="slupek"><span>1</span><i style="width:0.6%"></i><b>14</b></div>
-      </div>
+      <p class="opis">Z 2 669 opinii potwierdzonych klientów. Pierwsze miejsce w Katowicach w plebiscycie Złote Orły Fryzjerstwa.</p>
     </div>
 
-    <div class="opinie">
-      <blockquote class="fade">
+    <div class="karuzela">
+      <article class="opinia fade">
+        <div class="gw">★★★★★</div>
         <p>Jestem zadowolony z wizyty. Super atmosfera, bardzo precyzyjnie wykonana usługa. Polecam.</p>
-        <footer><b>Marcin</b> · TOP Kombo u Anastazji · 11 sierpnia 2026</footer>
-      </blockquote>
-      <blockquote class="fade">
+        <div class="kto"><span class="ini">M</span><div><b>Marcin</b><i>TOP Kombo · Anastazja · 11.08.2026</i></div></div>
+      </article>
+      <article class="opinia fade">
+        <div class="gw">★★★★★</div>
         <p>Отличный салон! Очень приятная атмосфера, всё чисто и красиво. Мастер был внимательный, аккуратный и сделал стрижку и бороду именно так, как нужно.</p>
-        <footer><b>Alina</b> · TOP Kombo u Olka · 21 lipca 2026</footer>
-      </blockquote>
-      <blockquote class="fade">
+        <div class="kto"><span class="ini">A</span><div><b>Alina</b><i>TOP Kombo · Olek · 21.07.2026</i></div></div>
+      </article>
+      <article class="opinia fade">
+        <div class="gw">★★★★★</div>
         <p>10/10</p>
-        <footer><b>Kacper</b> · strzyżenie u Nikity · 23 lipca 2026</footer>
-      </blockquote>
-      <blockquote class="fade">
+        <div class="kto"><span class="ini">K</span><div><b>Kacper</b><i>Strzyżenie · Nikita · 23.07.2026</i></div></div>
+      </article>
+      <article class="opinia fade">
+        <div class="gw">★★★★★</div>
         <p>Rewelacja!</p>
-        <footer><b>Kuba</b> · TOP Kombo u Mili · 14 lipca 2026</footer>
-      </blockquote>
+        <div class="kto"><span class="ini">K</span><div><b>Kuba</b><i>TOP Kombo · Mila · 14.07.2026</i></div></div>
+      </article>
+      <article class="opinia fade">
+        <div class="gw">★★★★★</div>
+        <p>Все хорошо, спасибо мастеру.</p>
+        <div class="kto"><span class="ini">M</span><div><b>Mykyta</b><i>Strzyżenie · Elczin · 24.07.2026</i></div></div>
+      </article>
     </div>
-    <p class="drobne fade" style="margin-top:16px">Opinie od potwierdzonych klientów, z systemu rezerwacji. Wszystkie 2 669 do przeczytania online.</p>
   </div>
 </section>
 
@@ -432,9 +450,31 @@
       <div class="ib fade">
         <h4>Kontakt</h4>
         <a class="duzy" href="tel:+48797831576">797 831 576</a>
-        <a href="https://www.instagram.com/asmabarber/" class="drobne" style="display:block"><b>@asmabarber</b> — wolne terminy i roboty na bieżąco</a>
-        <p class="drobne">Mówimy po polsku i po ukraińsku.</p>
+        <p class="drobne">Zapisy telefonicznie, przez rezerwację online albo w wiadomości.<br>Mówimy po polsku i po ukraińsku.</p>
       </div>
+    </div>
+
+    <div class="kanaly">
+      <a class="kanal fade" href="https://www.instagram.com/asmabarber/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.6"/>
+          <circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg>
+        <div><b>Instagram</b><span>@asmabarber · 2 275 obserwujących</span></div>
+      </a>
+      <a class="kanal fade" href="https://www.facebook.com/asmabarber1/">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg>
+        <div><b>Facebook</b><span>Asma Barber Katowice</span></div>
+      </a>
+      <a class="kanal fade" href="https://booksy.com/pl-pl/113994_asma-barber-katowice_barber-shop_11597_katowice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6.1L12 16.8 6.6 19.7l1.2-6.1L3.3 9.4l6.1-.8z"/></svg>
+        <div><b>Booksy</b><span>5,0 · 2 669 opinii</span></div>
+      </a>
+      <a class="kanal fade" href="https://n1431009.alteg.io">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 3v3M16 3v3"/></svg>
+        <div><b>Rezerwacja online</b><span>Nowy system zapisów</span></div>
+      </a>
     </div>
   </div>
 </section>
