@@ -120,6 +120,28 @@
     font-size:26px;line-height:1}
   .kurs p{color:rgba(242,239,233,.75);font-size:14.5px;margin-top:5px}
 
+  /* ── ZESPÓŁ: nazwiska barberów prosto z systemu rezerwacji ── */
+  .zespol{display:grid;gap:8px;margin-top:26px;grid-template-columns:repeat(2,1fr)}
+  .osoba{border:1px solid rgba(242,239,233,.14);padding:18px 16px;transition:.25s}
+  .osoba:hover{border-color:var(--zloto);background:rgba(200,164,74,.06)}
+  .osoba b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;
+    text-transform:uppercase;font-size:25px;line-height:1}
+  .osoba span{display:block;margin-top:5px;color:var(--szary2);font-size:13px;
+    letter-spacing:.1em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+
+  /* ── OPINIE: prawdziwe cytaty, nie wymyślone ── */
+  .slupki{min-width:230px;flex:1;max-width:330px}
+  .slupek{display:flex;align-items:center;gap:9px;padding:2.5px 0;font-size:12px}
+  .slupek span{width:9px;color:var(--szary2);font-family:'Barlow Condensed',sans-serif;font-size:14px}
+  .slupek i{height:5px;background:var(--zloto);min-width:2px;display:block}
+  .slupek b{color:var(--szary2);font-weight:500;font-size:11.5px;white-space:nowrap}
+  .opinie{display:grid;gap:10px;margin-top:26px;grid-template-columns:1fr}
+  .opinie blockquote{border-left:2px solid var(--zloto);padding:2px 0 2px 18px}
+  .opinie p{font-size:16.5px;line-height:1.55}
+  .opinie footer{margin-top:9px;color:var(--szary2);font-size:12.5px;
+    font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase}
+  .opinie footer b{color:var(--zloto-j);font-weight:700}
+
   /* ── INSTAGRAM: kafelki 1:1 plus karta profilu w tej samej siatce ── */
   .ig{display:grid;gap:8px;margin-top:26px;grid-template-columns:repeat(2,1fr)}
   .ig-kafel{position:relative;overflow:hidden;aspect-ratio:1}
@@ -170,6 +192,8 @@
     .cennik{columns:2;column-gap:56px}
     .poz{break-inside:avoid}
     .kursy{grid-template-columns:repeat(2,1fr)}
+    .zespol{grid-template-columns:repeat(6,1fr)}
+    .opinie{grid-template-columns:repeat(2,1fr);gap:26px 44px}
     .ig{grid-template-columns:repeat(5,1fr)}
     .ig-profil{grid-column:span 1;aspect-ratio:1;padding:20px}
     .ig-profil b{font-size:24px}
@@ -254,6 +278,64 @@
       <div class="poz fade"><span class="n">Farbowanie brwi</span><span class="kr"></span><span class="t">15 min</span><span class="c">60 zł</span></div>
       <div class="poz fade"><span class="n">Konsultacja</span><span class="kr"></span><span class="t">15 min</span><span class="c">35 zł</span></div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="naglowek fade">
+      <div>
+        <div class="metka">Zespół</div>
+        <h2>Kto Cię <em>ostrzyże</em></h2>
+      </div>
+      <p class="opis">Sześć osób przy fotelach. Przy rezerwacji wybierasz swojego — i wracasz do tego samego.</p>
+    </div>
+    <div class="zespol">
+      <a class="osoba fade" href="https://n1431009.alteg.io"><b>Anastazja</b><span>Top Barber · 🇺🇦</span></a>
+      <a class="osoba fade" href="https://n1431009.alteg.io"><b>Nikita</b><span>Top Barber · 🇺🇦</span></a>
+      <a class="osoba fade" href="https://n1431009.alteg.io"><b>Vladyslav</b><span>Top Barber · 🇺🇦</span></a>
+      <a class="osoba fade" href="https://n1431009.alteg.io"><b>Elczin</b><span>Top Barber · 🇦🇿</span></a>
+      <a class="osoba fade" href="https://n1431009.alteg.io"><b>Mila</b><span>Barber · 🇺🇦</span></a>
+      <a class="osoba fade" href="https://n1431009.alteg.io"><b>Olek</b><span>Barber</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="opinie-sek">
+  <div class="wrap">
+    <div class="naglowek fade">
+      <div>
+        <div class="metka">Opinie</div>
+        <h2>2 669 <em>opinii</em></h2>
+      </div>
+      <div class="slupki fade">
+        <div class="slupek"><span>5</span><i style="width:98.4%"></i><b>2 626</b></div>
+        <div class="slupek"><span>4</span><i style="width:0.6%"></i><b>14</b></div>
+        <div class="slupek"><span>3</span><i style="width:0.4%"></i><b>9</b></div>
+        <div class="slupek"><span>2</span><i style="width:0.3%"></i><b>6</b></div>
+        <div class="slupek"><span>1</span><i style="width:0.6%"></i><b>14</b></div>
+      </div>
+    </div>
+
+    <div class="opinie">
+      <blockquote class="fade">
+        <p>Jestem zadowolony z wizyty. Super atmosfera, bardzo precyzyjnie wykonana usługa. Polecam.</p>
+        <footer><b>Marcin</b> · TOP Kombo u Anastazji · 11 sierpnia 2026</footer>
+      </blockquote>
+      <blockquote class="fade">
+        <p>Отличный салон! Очень приятная атмосфера, всё чисто и красиво. Мастер был внимательный, аккуратный и сделал стрижку и бороду именно так, как нужно.</p>
+        <footer><b>Alina</b> · TOP Kombo u Olka · 21 lipca 2026</footer>
+      </blockquote>
+      <blockquote class="fade">
+        <p>10/10</p>
+        <footer><b>Kacper</b> · strzyżenie u Nikity · 23 lipca 2026</footer>
+      </blockquote>
+      <blockquote class="fade">
+        <p>Rewelacja!</p>
+        <footer><b>Kuba</b> · TOP Kombo u Mili · 14 lipca 2026</footer>
+      </blockquote>
+    </div>
+    <p class="drobne fade" style="margin-top:16px">Opinie od potwierdzonych klientów, z systemu rezerwacji. Wszystkie 2 669 do przeczytania online.</p>
   </div>
 </section>
 
